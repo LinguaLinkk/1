@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinguaLink - Digital Magazine</title>
+    <style>
+        /* GENEL STILLER */
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* SAYFA YÖNETİMİ */
+        .page-section { 
+            display: none; 
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        .active { 
+            display: block; 
+        }
+
+        .container {
+            max-width: 800px;
+            background: #fff;
+            padding: 50px;
+            margin: 20px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        h1 { font-size: 2.5rem; text-align: center; border-bottom: 2px solid #3498db; padding-bottom: 10px; margin-bottom: 30px; }
+        h2 { color: #3498db; font-size: 1.5rem; }
+        p { margin-bottom: 20px; text-align: justify; }
+        .highlight { font-weight: bold; color: #2c3e50; }
+        
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        /* BUTONLAR */
+        .btn-container { text-align: center; margin-top: 30px; }
+        .next-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 15px 45px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin: 5px;
+        }
+        .next-btn:hover { background-color: #2980b9; transform: scale(1.05); }
+
+        /* İÇİNDEKİLER TABLOSU */
+        .contents-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .contents-table td { padding: 12px 10px; border-bottom: 1px solid #eee; }
+        .page-col { text-align: right; font-weight: bold; color: #2c3e50; }
+
+        /* SARI LİSTE SAYFASI */
+        .yellow-theme {
+            background-color: #ffeb3b;
+        }
+        .yellow-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 50px;
+        }
+        .country-item {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 25px 0;
+            cursor: pointer;
+            border-bottom: 4px solid black;
+            color: black;
+            transition: 0.2s;
+        }
+        .country-item:hover { background: rgba(0,0,0,0.05); }
+
+        /* ÜLKE DETAYLARI GENEL */
+        .flag-icon { font-size: 5rem; text-align: center; margin-bottom: 10px; }
+        .detail-content h3 { 
+            color: #2e7d32; 
+            border-left: 5px solid #2e7d32; 
+            padding-left: 10px; 
+            margin-top: 35px;
+        }
+        .canada-header h3 { color: #c0392b; border-left-color: #c0392b; }
+        .nz-header h3 { color: #00247d; border-left-color: #00247d; } /* Yeni Zelanda için lacivert tonu */
+
+        @media (max-width: 600px) {
+            .container { padding: 25px; }
+            h1 { font-size: 1.8rem; }
+            .country-item { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="page1" class="page-section active">
+        <div class="container">
+            <h1>Editor’s Note</h1>
+            <h2>Welcome to the first issue of LinguaLink!</h2>
+            <p>In this edition, we explore how English connects people across different continents, cultures, and histories. English is more than just a language — it is a <span class="highlight">global bridge</span> that links nations in education, business, science, travel, and communication.</p>
+            <p>In the following pages, you will discover countries where English plays an important role in daily life. We will travel to the <strong>United States, the United Kingdom, Canada, and Australia</strong>, where English is the main native language. We will also explore <strong>New Zealand and Ireland</strong>, countries rich in history and unique traditions.</p>
+            <p>Our journey continues to India, South Africa, Nigeria, Singapore, the Philippines, and Kenya, where English is widely spoken as an official or second language. Each of these countries has its own culture, accent, traditions, and lifestyle. Although they share the English language, their identities and customs are wonderfully diverse.</p>
+            <p>Through <strong>LinguaLink</strong>, our goal is to show that language connects people, but culture makes every country special. We hope this magazine helps you learn new facts, understand different cultures, and feel inspired to explore the English-speaking world.</p>
+            <footer>Enjoy reading and discovering the world with LinguaLink!</footer>
+            <div class="btn-container">
+                <button class="next-btn" onclick="goTo('page2')">Next Page ↓</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page2" class="page-section">
+        <div class="container">
+            <h1>CONTENTS</h1>
+            <table class="contents-table">
+                <tr style="color: #3498db; font-weight: bold; border-bottom: 2px solid #3498db;">
+                    <td>Section</td><td class="page-col">Page</td>
+                </tr>
+                <tr><td>Editor's Note</td><td class="page-col">3</td></tr>
+                <tr><td>The United States</td><td class="page-col">4</td></tr>
+                <tr><td>The United Kingdom</td><td class="page-col">6</td></tr>
+                <tr><td>Canada</td><td class="page-col">8</td></tr>
+                <tr><td>Australia</td><td class="page-col">10</td></tr>
+                <tr><td>New Zealand</td><td class="page-col">12</td></tr>
+                <tr><td>Ireland</td><td class="page-col">14</td></tr>
+                <tr><td>India</td><td class="page-col">16</td></tr>
+                <tr><td>South Africa</td><td class="page-col">18</td></tr>
+                <tr><td>Nigeria</td><td class="page-col">20</td></tr>
+                <tr><td>Singapore</td><td class="page-col">22</td></tr>
+                <tr><td>The Philippines</td><td class="page-col">24</td></tr>
+                <tr><td>Kenya</td><td class="page-col">26</td></tr>
+                <tr><td>Fun Facts About English</td><td class="page-col">28</td></tr>
+                <tr><td>Quiz & Activities</td><td class="page-col">30</td></tr>
+            </table>
+            <div class="btn-container">
+                <button class="next-btn" onclick="goTo('page1')" style="background: #7f8c8d;">BACK</button>
+                <button class="next-btn" onclick="goTo('page3')">Next Page ↓</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page3" class="page-section yellow-theme">
+        <div class="yellow-container">
+            <div class="country-item" onclick="goTo('canada-detail')">CANADA</div>
+            <div class="country-item" onclick="goTo('ireland-detail')">IRELAND</div>
+            <div class="country-item" onclick="goTo('nz-detail')">NEW ZEALAND</div>
+            <div class="btn-container">
+                <button class="next-btn" onclick="goTo('page2')" style="background: #333; margin-top: 50px;">BACK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="canada-detail" class="page-section">
+        <div class="container detail-content canada-header">
+            <div class="flag-icon">🇨🇦</div>
+            <h1>NORTHERN LIGHT: CANADA</h1>
+            <p style="text-align: center; font-style: italic; color: #7f8c8d;">A Magazine Feature on Canada’s Culture, Traditions, and Way of Life</p>
+            <h3>A Country in the Heart of Nature</h3>
+            <p>Canada is the second largest country in the world by land area and is located in North America. It stretches from the Atlantic Ocean in the east to the Pacific Ocean in the west, and up to the Arctic Ocean in the north. The capital city is Ottawa, while Toronto, Vancouver, and Montreal are among its largest and most dynamic cities.</p>
+            <p>Canada is world-famous for its breathtaking natural beauty. It is home to vast forests, thousands of lakes, spectacular mountain ranges, and the famous Niagara Falls. During winter, the snow-covered landscapes create a peaceful and magical atmosphere that attracts visitors from around the world.</p>
+            <h3>A Multicultural Society</h3>
+            <p>Canada is widely recognized for its multicultural identity. People from different countries, cultures, and religions live together in harmony. The country has two official languages: English and French. French is especially spoken in the province of Quebec.</p>
+            <p>Indigenous peoples — First Nations, Inuit, and Métis — are an essential part of Canada’s history and cultural heritage. Their traditions, ceremonies, art, and music continue to influence Canadian culture today. Canada values diversity and promotes equality among all its citizens.</p>
+            <h3>Traditions and Celebrations</h3>
+            <p><strong>Canada Day (July 1):</strong> Canada Day marks the anniversary of the country’s founding. On this day, people wear red and white clothes, attend concerts, join public celebrations, and watch fireworks across the country.</p>
+            <p><strong>Thanksgiving:</strong> Canadian Thanksgiving is celebrated on the second Monday of October. Families gather for a special meal, often including turkey, vegetables, and dessert. It is a time to give thanks for health, family, and blessings.</p>
+            <h3>Canadian Cuisine</h3>
+            <p>One of the most famous dishes is <strong>poutine</strong>, made with French fries, cheese curds, and gravy. Maple syrup is a national symbol and is commonly served with pancakes and desserts.</p>
+            <div class="btn-container">
+                <button class="next-btn" onclick="goTo('page3')" style="background: #333;">BACK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="ireland-detail" class="page-section">
+        <div class="container detail-content">
+            <div class="flag-icon">🇮🇪</div>
+            <h1>EMERALD ISLE: DISCOVERING IRELAND</h1>
+            <p style="text-align: center; font-style: italic; color: #7f8c8d;">A Magazine Feature on Ireland’s Traditions, Culture, and Beliefs</p>
+            
+            <h3>A Land of Green Wonders</h3>
+            <p>Ireland is an island nation located in the west of Europe. Known as the “Emerald Isle,” Ireland is famous for its breathtaking green landscapes, rolling hills, dramatic cliffs, and historic castles. Its capital city, Dublin, is a lively cultural center filled with music, literature, and history.</p>
+            
+            <h3>History and Cultural Identity</h3>
+            <p>Ireland has a rich and complex history shaped by Celtic civilization, Viking invasions, Norman settlers, and British rule. The Irish language (Gaelic) is one of the country’s official languages and is still taught in schools.</p>
+
+            <h3>Traditions and Celebrations</h3>
+            <p><strong>St. Patrick’s Day (March 17):</strong> St. Patrick’s Day is Ireland’s most important national holiday. On this day, people wear green clothing, decorate with shamrocks, and enjoy parades and music.</p>
+            
+            <h3>Irish Cuisine</h3>
+            <p>Irish cuisine is simple, hearty, and comforting. Popular dishes include <strong>Irish Stew</strong>, <strong>Soda Bread</strong>, and <strong>Boxty</strong> (a traditional potato pancake).</p>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="goTo('page3')" style="background: #333;">BACK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="nz-detail" class="page-section">
+        <div class="container detail-content nz-header">
+            <div class="flag-icon">🇳🇿</div>
+            <h1>LAND OF THE LONG WHITE CLOUD: DISCOVERING NEW ZEALAND</h1>
+            <p style="text-align: center; font-style: italic; color: #7f8c8d;">A Magazine Feature on New Zealand’s Traditions, Culture, and Beliefs</p>
+            
+            <h3>A Paradise of Natural Beauty</h3>
+            <p>New Zealand is an island nation located in the southwestern Pacific Ocean. It consists mainly of two large islands — the North Island and the South Island. The capital city is Wellington, while Auckland is the largest city.</p>
+            <p>The Māori name for New Zealand is <strong>Aotearoa</strong>, which means “Land of the Long White Cloud.” It is world-famous for its breathtaking landscapes, including snow-capped mountains and crystal-clear lakes.</p>
+
+            <h3>History and Cultural Identity</h3>
+            <p>New Zealand’s culture is strongly influenced by both Māori and European traditions. The Māori people were the first settlers, arriving over 700 years ago. Their language, art, and customs remain an essential part of the country’s identity.</p>
+            <p>The <strong>Treaty of Waitangi</strong> (signed in 1840) is an important historical agreement between Māori chiefs and the British Crown.</p>
+
+            <h3>Traditions and Celebrations</h3>
+            <p><strong>Waitangi Day (February 6):</strong> New Zealand’s national day. It commemorates the signing of the Treaty of Waitangi.</p>
+            <p><strong>The Haka:</strong> A traditional Māori ceremonial dance that includes chanting and rhythmic movements. It is famously performed by the national rugby team, the <strong>All Blacks</strong>.</p>
+            <p><strong>Matariki:</strong> Marks the Māori New Year, a time for remembering ancestors and celebrating family.</p>
+
+            <h3>Daily Life and Social Values</h3>
+            <p>New Zealanders, often called “Kiwis,” are known for being friendly and relaxed. The country was the first in the world to grant women the right to vote in 1893.</p>
+
+            <h3>NEW ZEALAND Cuisine</h3>
+            <p><strong>Hāngi:</strong> A traditional Māori method of cooking food underground using heated stones.</p>
+            <p><strong>Pavlova:</strong> A popular dessert made with meringue, cream, and fresh fruit.</p>
+
+            <h3>Modern New Zealand</h3>
+            <p>Today, New Zealand is a developed and peaceful country known for environmental awareness, clean cities, and a high quality of life. It is a unique nation where ancient traditions meet modern life.</p>
+
+            <div class="btn-container">
+                <button class="next-btn" onclick="goTo('page3')" style="background: #333;">BACK</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goTo(pageId) {
+            const pages = document.querySelectorAll('.page-section');
+            pages.forEach(p => {
+                p.classList.remove('active');
+            });
+            
+            const targetPage = document.getElementById(pageId);
+            if(targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+    </script>
+
+</body>
+</html>
